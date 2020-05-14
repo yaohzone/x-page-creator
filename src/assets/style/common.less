@@ -1,0 +1,61 @@
+@import (reference) './reference';
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 14px;
+    color: #222;
+    &.static {
+        position: static!important;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    // box-shadow: inset 0 0 2px rgba(0, 0, 0,.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 4px;
+}
+
+.g-message{
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.93rem;
+    color: #666;
+}
+
+.g-hide-scrollbar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.g-hint {
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+}
+
+.g-bg-white{
+    .bg-white();
+}
+
+// :focus {
+//     outline: none;
+// }

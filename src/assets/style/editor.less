@@ -1,0 +1,72 @@
+[data-editor] {
+    transition: 0.2s;
+    &:focus {
+        outline: none;
+    }
+    &[focus], &[drag-focus] {
+        position: relative;
+        outline: none;
+        z-index: 99;
+    }
+    &[focus] {
+        box-shadow: 0 0 0 1px @color-info, 0 0 0 3px fade(@color-info, 30), inset 0 0 0 2px fade(@color-info, 30) !important;
+    }
+    &[drag-focus] {
+        opacity: 0.6;
+    }
+    &[drag-focus="sibling"] {
+        box-shadow: 0 0 0 1px @color-success, 0 0 10px fade(@color-success, 80) !important;
+    }
+    &[drag-focus="child"] {
+        box-shadow: 0 0 0 1px @color-success, inset 0 0 10px fade(@color-success, 80) !important;
+    }
+
+    > [data-mover] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 1002;
+        height: 12px;
+        background: rgba(0, 0, 0, 0.1);
+        cursor: move;
+        &[dragging] {
+            height: 100%;
+            border: 1px dashed rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &[dragging] {
+        opacity: 0.3;
+    }
+
+    &[data-role="root"] {
+        .layout-tag('Root');
+    }
+    &[data-role="container"] {
+        .layout-tag('Container');
+    }
+    &[data-role="absolute"] {
+        .layout-tag('Absolute');
+    }
+    &[data-role="fixed"] {
+        .layout-tag('Fixed');
+    }
+    &[data-role="row"] {
+        .layout-tag('Row');
+    }
+    &[data-role="column"] {
+        .layout-tag('Column');
+    }
+}
+
+
+body {
+    .el-form--inline .el-form-item__label {
+        padding: 0 12px 0 0;
+    }
+    .el-tree-node__label{
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{{TITLE_FLAG}}</title>
+    <meta name="keywords" content="{{KEYWORDS_FLAG}}"/>
+    <meta name="description" content="{{DESC_FLAG}}"/>
+    <meta name="copyright" content="工品汇"/>
+    <%= htmlWebpackPlugin.options.headTags.join('\n    ') %>
+    {{HEAD_FLAG}}
+</head>
+<body>
+    {{BODY_FLAG}}
+    <%= htmlWebpackPlugin.options.bodyTags.join('\n    ') %>
+    {{FOOT_FLAG}}
+    {{SCRIPT_FLAG}}
+</body>
+</html>

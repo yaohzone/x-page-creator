@@ -1,0 +1,116 @@
+/*
+ * Vue transition
+ */
+
+.vue-transition(@name; @time:0.3s; @transfrom:inherit; @opacity:inherit;){
+    .@{name}-enter-active,
+    .@{name}-leave-active {
+        transition: @time;
+    }
+    .@{name}-enter,
+    .@{name}-leave-to{
+        transform: @transfrom;
+        opacity: @opacity;
+    }
+}
+
+/* 带有shade */
+.vue-transition-shade(@name; @time:0.3s; @transfrom:inherit; @opacity:inherit;){
+    .@{name}-enter-active,
+    .@{name}-leave-active {
+        transition: @time;
+        .e-shade,
+        .e-block{
+            transition: @time;
+        }
+    }
+    .@{name}-enter,
+    .@{name}-leave-to{
+        opacity: @opacity;
+        .e-shade{
+            opacity: @opacity;
+        }
+        .e-block{
+            transform: @transfrom;
+            opacity: @opacity;
+        }
+    }
+}
+
+// fade
+.vue-transition(fade, 0.3s, inherit, 0);
+
+// fadedown
+.vue-transition(fadedown, 0.3s, translate3d(0, -10%, 0), 0);
+
+// fadeup
+.vue-transition(fadeup, 0.3s, translate3d(0, 10%, 0), 0);
+
+
+// scale
+.vue-transition(scale, 0.2s, scale(0.8), 0);
+
+// scale-shade
+.vue-transition-shade(scale-shade, 0.3s, scale(0.8), 0);
+
+
+// popleft
+.vue-transition(popleft, 0.3s, translate3d(-100%, 0, 0), 0);
+
+// popright
+.vue-transition(popright, 0.3s, translate3d(100%, 0, 0), 0);
+
+// popup
+.vue-transition(popup, 0.3s, translate3d(0, 100%, 0), 0);
+
+// popdown
+.vue-transition(popdown, 0.3s, translate3d(0, -100%, 0), 0);
+
+// popleft-shade
+.vue-transition-shade(popleft-shade, 0.3s, translate3d(-100%, 0, 0), 0);
+
+// popright-shade
+.vue-transition-shade(popright-shade, 0.3s, translate3d(100%, 0, 0), 0);
+
+// popup-shade
+.vue-transition-shade(popup-shade, 0.3s, translate3d(0, -100%, 0), 0);
+
+// popdown-shade
+.vue-transition-shade(popdown-shade, 0.3s, translate3d(0, 100%, 0), 0);
+
+
+// fadeup-shade
+.vue-transition-shade(fadeup-shade, 0.2s, translate3d(0, 10%, 0), 0);
+
+// fadescale-shade
+.vue-transition-shade(fadescale-shade, 0.3s, scale(0.8), 0);
+
+// right-shade
+.vue-transition-shade(right-shade, 0.3s, translate3d(100%, 0, 0), 0);
+
+
+/* transition-group */
+.flip-list-move {
+    transition: transform .5s;
+}
+
+
+.hover-effect(@name; @time: 0.3s; @transfrom: none; @opacity: 1;){
+    .hover-effect-@{name} {
+        transition-duration: @time !important;
+        transition-property: all;
+        &:hover {
+            z-index: 99;
+            transform: @transfrom;
+            opacity: @opacity;
+        }
+    }
+}
+
+.hover-effect(fade, 0.3s, none, 0.8);
+.hover-effect(zoomout, 0.3s, scale(0.9));
+.hover-effect(zoomin, 0.3s, scale(1.1));
+.hover-effect(left, 0.3s, translate3d(-10%, 0, 0));
+.hover-effect(right, 0.3s, translate3d(10%, 0, 0));
+.hover-effect(top, 0.3s, translate3d(0, -10%, 0));
+.hover-effect(bottom, 0.3s, translate3d(0, 10%, 0));

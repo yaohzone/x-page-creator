@@ -1,0 +1,65 @@
+
+// 清理浮动
+.clearfix() {
+    &:after {
+        content: '.';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+.scrollX() {
+    display: -webkit-box;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ellipsis-oneline() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ellipsis( @line: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.flex-box() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-white() {
+    background: #fff;
+}
+
+.layout-tag(@text){
+    position: relative;
+    padding-top: 15px;
+    box-shadow: 0 0 0 1px fade(@color-warning, 50);
+    &:before{
+        content: @text;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1001;
+        height: 12px;
+        line-height: 10px;
+        padding: 0 4px;
+        font-size: 12px;
+        background: fade(@color-warning, 50);
+        color: @color-warning;
+        border-radius: 0 0 4px 0;
+    }
+}
